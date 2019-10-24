@@ -11,6 +11,8 @@ import androidx.ui.core.setContent
 import androidx.ui.foundation.DrawImage
 import androidx.ui.foundation.shape.corner.RoundedCornerShape
 import androidx.ui.layout.*
+import androidx.ui.material.MaterialTheme
+import androidx.ui.material.themeTextStyle
 import androidx.ui.res.imageResource
 import androidx.ui.tooling.preview.Preview
 
@@ -28,18 +30,19 @@ class ComposableFunctionActivity : AppCompatActivity() {
 @Composable
 fun Sapa(name: String) {
     val img = +imageResource(R.drawable.zombieland)
-    Column(crossAxisSize = LayoutSize.Expand, modifier = Spacing(4.dp)) {
-        Container(expanded = true, height = 170.dp) {
-            Clip(shape = RoundedCornerShape(8.dp)) {
-                DrawImage(image = img)
+    MaterialTheme {
+        Column(crossAxisSize = LayoutSize.Expand, modifier = Spacing(4.dp)) {
+            Container(expanded = true, height = 170.dp) {
+                Clip(shape = RoundedCornerShape(8.dp)) {
+                    DrawImage(image = img)
+                }
             }
+            HeightSpacer(height = 16.dp)
+            Text(text = "Hi $name", style = +themeTextStyle { h6 })
+            Text(text = "Text kedua", style = +themeTextStyle { body2 })
+            Text("Text ketiga")
         }
-        HeightSpacer(height = 16.dp)
-        Text(text = "Hi $name")
-        Text(text = "Text kedua")
-        Text("Text ketiga")
     }
-
 }
 
 @Preview
