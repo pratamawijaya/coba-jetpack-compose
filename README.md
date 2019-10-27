@@ -1,4 +1,4 @@
-# Sample Jetpack Compose
+# [EXPERIMENTAL] Sample Jetpack Compose
 
 
 ## Known issue
