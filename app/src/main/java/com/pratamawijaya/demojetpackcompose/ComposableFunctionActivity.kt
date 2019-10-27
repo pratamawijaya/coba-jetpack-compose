@@ -15,22 +15,23 @@ import androidx.ui.material.MaterialTheme
 import androidx.ui.material.themeTextStyle
 import androidx.ui.res.imageResource
 import androidx.ui.tooling.preview.Preview
+import com.pratamawijaya.demojetpackcompose.composable.MyApp
 
 class ComposableFunctionActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            Sapa("Pratama")
+            MyApp {
+                Sapa("Pratama")
+            }
         }
     }
-
 }
 
 @Composable
 fun Sapa(name: String) {
     val img = +imageResource(R.drawable.zombieland)
-    MaterialTheme {
         Column(crossAxisSize = LayoutSize.Expand, modifier = Spacing(4.dp)) {
             Container(expanded = true, height = 170.dp) {
                 Clip(shape = RoundedCornerShape(8.dp)) {
@@ -42,7 +43,6 @@ fun Sapa(name: String) {
             Text(text = "Text kedua", style = +themeTextStyle { body2 })
             Text("Text ketiga")
         }
-    }
 }
 
 @Preview
