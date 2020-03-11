@@ -3,7 +3,9 @@ package com.pratamawijaya.demojetpackcompose
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.Composable
+import androidx.ui.core.Text
 import androidx.ui.core.setContent
+import androidx.ui.foundation.AdapterList
 import androidx.ui.foundation.VerticalScroller
 import androidx.ui.graphics.Color
 import androidx.ui.layout.Column
@@ -21,6 +23,14 @@ class MainActivity : AppCompatActivity() {
                 CreateListView()
             }
         }
+    }
+}
+
+@Composable
+fun CreateListWithAdapter() {
+    val img = "https://picsum.photos/200"
+    AdapterList(data = listOf("Hello", "anda", "namanya", "siapa")) {
+        NewsCardItem(title = it, imgUrl = img)
     }
 }
 
