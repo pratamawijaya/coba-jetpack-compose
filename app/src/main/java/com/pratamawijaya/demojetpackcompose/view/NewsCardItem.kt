@@ -1,40 +1,28 @@
 package com.pratamawijaya.demojetpackcompose.view
 
 import androidx.compose.Composable
-import androidx.compose.unaryPlus
-import androidx.ui.core.Clip
-import androidx.ui.core.Modifier
 import androidx.ui.core.Text
-import androidx.ui.core.dp
-import androidx.ui.foundation.DrawImage
-import androidx.ui.foundation.shape.corner.RoundedCornerShape
-import androidx.ui.graphics.Image
-import androidx.ui.layout.Column
-import androidx.ui.layout.Container
-import androidx.ui.layout.HeightSpacer
-import androidx.ui.res.imageResource
-import androidx.ui.tooling.preview.Preview
-import com.pratamawijaya.demojetpackcompose.R
+import androidx.ui.layout.*
+import androidx.ui.text.TextStyle
+import androidx.ui.text.font.FontFamily
+import androidx.ui.unit.dp
+import androidx.ui.unit.sp
+import com.koduok.compose.glideimage.GlideImage
 
 @Composable
-fun NewsCardItem(title: String) {
-    val img = +imageResource(R.drawable.zombieland)
-    Column {
-        Container(expanded = true, height = 170.dp) {
-            Clip(shape = RoundedCornerShape(8.dp)) {
-                DrawImage(image = img)
-            }
+fun NewsCardItem(title: String, imgUrl: String) {
+    Row {
+        Container(width = 80.dp, height = 80.dp) {
+            GlideImage(model = imgUrl)
         }
-        HeightSpacer(height = 16.dp)
-        Text(text = title)
-        HeightSpacer(height = 16.dp)
+        Spacer(modifier = LayoutWidth(16.dp))
+        Column {
+            Text(
+                text = title,
+                style = TextStyle(fontFamily = FontFamily.SansSerif, fontSize = 18.sp)
+            )
+            Spacer(modifier = LayoutHeight(8.dp))
+            Text(text = "Description")
+        }
     }
-
-}
-
-
-@Preview
-@Composable
-fun previewNewsCardItem() {
-    NewsCardItem(title = "John Snow Menang")
 }

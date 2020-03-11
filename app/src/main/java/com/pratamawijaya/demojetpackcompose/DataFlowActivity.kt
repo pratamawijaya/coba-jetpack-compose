@@ -33,9 +33,9 @@ fun DataFlowScreen(appState: DataScreenState = DataScreenState()) {
 
 @Composable
 fun Counter(state: CounterState) {
-    Button(text = "Saya sudah klik ${state.count} kali", onClick = {
-        state.count++
-    })
+//    Button(text = "Saya sudah klik ${state.count} kali", onClick = {
+//        state.count++
+//    })
 }
 
 @Model

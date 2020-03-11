@@ -23,9 +23,13 @@ class StartScreenActivity : AppCompatActivity() {
 @Composable
 fun StartScreen(){
     Column {
-        Button(text = "Data Flow", onClick = {
+        Button(onClick = {
 
-        })
+        }) {
+        }
+//        Button(text = "Data Flow", onClick = {
+//
+//        })
     }
 }
 

@@ -1,14 +1,15 @@
 package com.pratamawijaya.demojetpackcompose
 
-import android.graphics.Color
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.Composable
 import androidx.ui.core.setContent
+import androidx.ui.foundation.VerticalScroller
+import androidx.ui.graphics.Color
 import androidx.ui.layout.Column
 import androidx.ui.material.Divider
 import androidx.ui.material.MaterialTheme
-import androidx.ui.tooling.preview.Preview
+import androidx.ui.unit.dp
 import com.pratamawijaya.demojetpackcompose.view.NewsCardItem
 
 class MainActivity : AppCompatActivity() {
@@ -17,7 +18,20 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             AppKerenSaya {
-                NewsCardItem("Hello")
+                CreateListView()
+            }
+        }
+    }
+}
+
+@Composable
+fun CreateListView() {
+    val img = "https://picsum.photos/200"
+    VerticalScroller {
+        Column {
+            (0..10).forEach { _ ->
+                NewsCardItem(title = "Jon Snow", imgUrl = img)
+                Divider(color = Color.Black, height = 2.dp)
             }
         }
     }
@@ -27,23 +41,5 @@ class MainActivity : AppCompatActivity() {
 fun AppKerenSaya(child: @Composable() () -> Unit) {
     MaterialTheme {
         child()
-    }
-}
-
-@Composable
-fun MyScreenContent() {
-    Column {
-        NewsCardItem(title = "Android")
-        Divider()
-        NewsCardItem(title = "Droid")
-    }
-}
-
-
-@Preview("MyScreen preview")
-@Composable
-fun DefaultPreview() {
-    AppKerenSaya {
-      MyScreenContent()
     }
 }
